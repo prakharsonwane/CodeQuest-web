@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeQuest - Login</title>
+    <style>
+        body { font-family: Arial, sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; background: #2c3e50; color: white; margin: 0; }
+        .login-container { background: #34495e; padding: 30px; border-radius: 10px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+        input { display: block; width: 100%; margin: 10px 0; padding: 10px; border-radius: 5px; border: none; box-sizing: border-box; }
+        button { background: #3498db; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; width: 100%; font-weight: bold; }
+        button:hover { background: #2980b9; }
+    </style>
+</head>
+<body>
+
+<div class="login-container">
+    <h2>Welcome to CodeQuest</h2>
+    <form id="loginForm">
+        <input type="text" id="username" placeholder="Username (admin)" required>
+        <input type="password" id="password" placeholder="Password (1234)" required>
+        <button type="submit">Start Quest</button>
+    </form>
+</div>
+
+<script>
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const user = document.getElementById('username').value;
+        const pass = document.getElementById('password').value;
+
+        if(user === "admin" && pass === "1234") {
+            alert("Login Successful!");
+            window.location.href = "game.html"; // Ye game page par bhej dega
+        } else {
+            alert("Invalid Username or Password!");
+        }
+    });
+</script>
+
+</body>
+</html>

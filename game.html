@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeQuest - Python Master</title>
+    <style>
+        body { font-family: 'Courier New', Courier, monospace; background: #1a1a1a; color: #00ff00; text-align: center; padding-top: 50px; margin: 0; }
+        .game-box { border: 2px solid #00ff00; display: inline-block; padding: 30px; border-radius: 15px; background: #000; width: 85%; max-width: 600px; box-shadow: 0 0 20px #00ff00; }
+        input { padding: 12px; width: 80%; margin: 15px 0; background: #222; color: #00ff00; border: 1px solid #00ff00; font-size: 16px; outline: none; }
+        button { background: #00ff00; color: black; border: none; padding: 12px 25px; cursor: pointer; font-weight: bold; margin-top: 10px; font-size: 16px; border-radius: 5px; }
+        button:hover { background: #00cc00; }
+        #message { font-weight: bold; margin-top: 15px; min-height: 20px; }
+        .level-indicator { font-size: 1.5em; margin-bottom: 10px; color: #ffbd2e; }
+    </style>
+</head>
+<body>
+
+    <div class="game-box" id="main-box">
+        <div class="level-indicator" id="levelTitle">LEVEL 1</div>
+        <p id="questionText">Which symbol is used for comments in Python?</p>
+        <input type="text" id="answerInput" placeholder="Type your answer here..." autocomplete="off">
+        <br>
+        <button onclick="checkAnswer()">Submit Answer</button>
+        <p id="message"></p>
+    </div>
+
+    <script>
+        let currentLevel = 1;
+
+        // Python Questions and Answers (English)
+        const levels = {
+            1: { q: "Which symbol is used for comments in Python?", a: "#" },
+            2: { q: "Is '2myvar' a valid variable name? (yes/no)", a: "no" },
+            3: { q: "What is the output of: print(10 > 9)?", a: "true" },
+            4: { q: "Which brackets are used for a List? (square/round)", a: "square" },
+            5: { q: "What is the file extension for Python files?", a: ".py" },
+            6: { q: "What is the output of: len('Hello')?", a: "5" },
+            7: { q: "Which keyword is used to create a function?", a: "def" },
+            8: { q: "What is the data type of 10.5?", a: "float" },
+            9: { q: "Which method is used to add an item to a list?", a: "append" },
+            10: { q: "Who created Python? (Guido/Bill)", a: "Guido" }
+        };
+
+        // Allow pressing 'Enter' key to submit
+        document.getElementById("answerInput").addEventListener("keyup", function(event) {
+            if (event.key === "Enter") {
+                checkAnswer();
+            }
+        });
+
+        function checkAnswer() {
+            const userInput = document.getElementById('answerInput');
+            const userAnswer = userInput.value.toLowerCase().trim();
+            const correctAnswer = levels[currentLevel].a.toLowerCase();
+            const msg = document.getElementById('message');
+
+            if (userAnswer === correctAnswer) {
+                if (currentLevel < 10) {
+                    currentLevel++;
+                    msg.innerText = "Correct! Well done. Level " + currentLevel + " is here!";
+                    msg.style.color = "#ffff00"; // Yellow for success
+                    updateLevel();
+                } else {
+                    document.getElementById('main-box').innerHTML = "<h1>🎉 CONGRATULATIONS! 🎉</h1><p>You have mastered the Python CodeQuest!</p><button onclick='location.href=\"index.html\"'>Restart Game</button>";
+                }
+            } else {
+                msg.innerText = "Incorrect! Please try again.";
+                msg.style.color = "#ff4444"; // Red for wrong answer
+            }
+            userInput.value = ""; // Clear input for next try
+            userInput.focus();
+        }
+
+        function updateLevel() {
+            document.getElementById('levelTitle').innerText = "LEVEL " + currentLevel;
+            document.getElementById('questionText').innerText = levels[currentLevel].q;
+        }
+    </script>
+</body>
+</html>
