@@ -5,13 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CodeQuest - Python Master</title>
     <style>
-        body { font-family: 'Courier New', Courier, monospace; background: #1a1a1a; color: #00ff00; text-align: center; padding-top: 50px; margin: 0; }
-        .game-box { border: 2px solid #00ff00; display: inline-block; padding: 30px; border-radius: 15px; background: #000; width: 85%; max-width: 600px; box-shadow: 0 0 20px #00ff00; }
-        input { padding: 12px; width: 80%; margin: 15px 0; background: #222; color: #00ff00; border: 1px solid #00ff00; font-size: 16px; outline: none; }
-        button { background: #00ff00; color: black; border: none; padding: 12px 25px; cursor: pointer; font-weight: bold; margin-top: 10px; font-size: 16px; border-radius: 5px; }
-        button:hover { background: #00cc00; }
-        #message { font-weight: bold; margin-top: 15px; min-height: 20px; }
-        .level-indicator { font-size: 1.5em; margin-bottom: 10px; color: #ffbd2e; }
+        body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #ffe4ec, #ffd6e8, #fce7f3);
+  color: #0f172a;
+  font-family: Arial, sans-serif;
+}
+ body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #fff7fb, #ffe4ec, #fef2f2);
+  font-family: Arial, sans-serif;
+  color: #0f172a;
+}
+
+/* Level cards */
+div {
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 16px;
+  padding: 16px;
+  margin: 12px 0;
+  box-shadow: 0 8px 25px rgba(255, 105, 180, 0.15);
+  transition: 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+/* hover glow */
+div:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 35px rgba(255, 105, 180, 0.25);
+}
+
+/* soft pink glow effect (instead of green) */
+div::before {
+  content: "";
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  background: rgba(255, 182, 193, 0.4);
+  filter: blur(45px);
+  top: -30px;
+  right: -30px;
+}
     </style>
 </head>
 <body>
