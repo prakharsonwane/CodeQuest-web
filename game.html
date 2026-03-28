@@ -5,62 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CodeQuest - Python Master</title>
     <style>
-       body {
+body {
   margin: 0;
-  min-height: 100vh;
-  background: linear-gradient(135deg, #fff7fb, #ffe4ec, #fef2f2);
-  font-family: Arial, sans-serif;
-  color: #0f172a;
+  font-family: Arial;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  /* Light Pink Animated Background */
+  background: linear-gradient(135deg, #ffd6ec, #ffc0cb, #ff9ac9);
+  background-size: 300% 300%;
+  animation: gradientMove 6s ease infinite;
+  color: black;
 }
 
-/* LEVEL / CARD UI */
-div {
-  background: rgba(255, 255, 255, 0.88);
-  border-radius: 16px;
-  padding: 16px;
-  margin: 12px 0;
-  box-shadow: 0 8px 25px rgba(255, 105, 180, 0.15);
-  transition: 0.3s;
-  position: relative;
-  overflow: hidden;
+/* Animation */
+@keyframes gradientMove {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
 }
 
-/* hover effect */
-div:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 35px rgba(255, 105, 180, 0.25);
+/* Buttons */
+button {
+  display: block;
+  margin: 10px auto;
+  padding: 10px;
+  width: 200px;
+  border: none;
+  border-radius: 8px;
+  background: #ff69b4;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
 }
 
-/* soft pink glow */
-div::before {
-  content: "";
-  position: absolute;
-  width: 120px;
-  height: 120px;
-  background: rgba(255, 182, 193, 0.35);
-  filter: blur(45px);
-  top: -30px;
-  right: -30px;
+button:hover {
+  background: #ff1493;
 }
-
-/* 🎉 PRO FIX: Well Done / Correct (BLACK + GREEN GAMING STYLE) */
-[style*="yellow"],
-[style*="gold"],
-[style*="#ff0"],
-[style*="color: yellow"] {
-  background: #0b0f0a !important;
-  color: #00ff7f !important;
-  border-radius: 14px;
-  box-shadow: 0 0 20px rgba(0, 255, 127, 0.5) !important;
-}
-
-/* extra safety for plain text highlight */
-.correct, .well-done {
-  background: #0b0f0a !important;
-  color: #00ff7f !important;
-  box-shadow: 0 0 18px rgba(0, 255, 127, 0.4) !important;
-}
-    </style>
+</style>
+       
 </head>
 <body>
 
